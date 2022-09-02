@@ -92,6 +92,13 @@ Binary is available for Linux, Windows and Mac OS (amd64 and arm64). Download th
 
 ### Linux:
 ```
+curl -sSLO https://github.com/tuladhar/cleanup-aws-access-keys/releases/download/v1.0/cleanup-aws-access-keys-v1.0-linux-amd64.tar.gz
+# or
+wget https://github.com/tuladhar/cleanup-aws-access-keys/releases/download/v1.0/cleanup-aws-access-keys-v1.0-linux-amd64.tar.gz
+
+tar zxf cleanup-aws-access-keys-v1.0-linux-amd64.tar.gz
+chmod +x ./cleanup-aws-access-keys
+./cleanup-aws-access-keys --version
 ```
 
 ## Development
