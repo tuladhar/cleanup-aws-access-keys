@@ -118,6 +118,3 @@ go run main.go
 // or
 go build
 ```
-
-## Author
-* Puru Tuladhar (https://github.com/tuladhar)
