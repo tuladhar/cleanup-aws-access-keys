@@ -1,9 +1,9 @@
 # Search and clean up unused AWS access keys
 A cloud security tool to search and clean up unused AWS access keys, written in Go.
 
-![cleanup-aws-access-keys](https://user-images.githubusercontent.com/5674762/188233291-1723a0b8-b00c-4ea8-8cc2-672934ea09e4.png)
+<image src="https://user-images.githubusercontent.com/5674762/188233291-1723a0b8-b00c-4ea8-8cc2-672934ea09e4.png" height=420 width=500 />
 
-## Features:
+## Features
 * Find unused access keys (e.g: access keys unused for more than 90 days, access keys created both never used)
 * Deactivate/activate access keys easily based on search criteria.
 * Delete access keys based on search criteria.
@@ -23,7 +23,7 @@ A cloud security tool to search and clean up unused AWS access keys, written in 
 
 [Learn more about AWS access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html?icmpid=docs_iam_console)
 
-## Usage:
+## Usage
 ```
 $ ./cleanup-aws-access-keys 
 A cloud security tool to search and clean up unused AWS access keys (https://github.com/tuladhar/cleanup-aws-access-keys)
@@ -46,7 +46,7 @@ Flags:
 Use "cleanup-aws-access-keys [command] --help" for more information about a command.
 ```
 
-## Examples:
+## Examples
 
 ### Search for active access keys unused for more than 90 days.
 ```
