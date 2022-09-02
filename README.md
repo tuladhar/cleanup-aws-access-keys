@@ -1,11 +1,11 @@
-# cleanup-aws-access-keys
+# Search and clean up unused AWS access keys
 A cloud security tool to search and clean up unused AWS access keys, written in Go.
 
 ## Features:
 * Find unused access keys (e.g: access keys unused for more than 90 days, access keys created both never used)
 * Deactivate/activate access keys easily based on search criteria.
 * Delete access keys based on search criteria.
-* Auto-approve flag to run non-interactively (e.g: a cron job to deactivate access keys unused for more 90 days)
+* Auto-approve flag to run non-interactively (e.g: integrate as cron job or Lambda to deactivate access keys unused for more 90 days)
 
 ## What is an AWS access keys?
 * Access keys are long-term credentials for an IAM user or the AWS account root user.
@@ -46,38 +46,43 @@ Use "cleanup-aws-access-keys [command] --help" for more information about a comm
 
 ## Examples:
 
-Search for active access keys unused for more than 90 days.
+### Search for active access keys unused for more than 90 days.
 ```
 ./cleanup-aws-access-keys search --last-used 90 --status active
 ```
+![2022-09-03_00-34](https://user-images.githubusercontent.com/5674762/188224200-272d5b1c-c5bc-44ce-821f-1d63d473d05d.png)
 
-Search for access keys created but never used.
+### Search for access keys created but never used.
 ```
 ./cleanup-aws-access-keys search --last-used -1
 ```
+![2022-09-03_00-37](https://user-images.githubusercontent.com/5674762/188224291-ad0f7132-e4bf-41e4-9dd0-b5f71d3a849c.png)
 
-Search for inactive access keys.
+### Search for inactive access keys.
 ```
 ./cleanup-aws-access-keys search --status inactive
 ```
+![2022-09-03_00-39](https://user-images.githubusercontent.com/5674762/188224305-a8b8bf4e-e24d-4e59-9528-2e49fe8a395c.png)
 
-Deactivate access keys unused for more than 90 days.
+### Deactivate access keys unused for more than 90 days.
 ```
 ./cleanup-aws-access-keys deactivate --last-used 90
 ```
 > Hint: Use `--auto-approve` flag to skip interactive prompt.
+![2022-09-03_01-19](https://user-images.githubusercontent.com/5674762/188224695-6cbf8564-993f-474a-8596-b24dae41c10d.png)
 
-Deactivate access keys of specific username.
+### Deactivate access keys of specific username.
 ```
 ./cleanup-aws-access-keys deactivate --username jeff.bezos
 ```
 
-Delete access keys unused for more than 180 days.
+### Delete access keys unused for more than 180 days.
 ```
 ./cleanup-aws-access-keys delete --last-used 180
 ```
+![2022-09-03_01-21](https://user-images.githubusercontent.com/5674762/188224980-280fe611-0f70-48c4-acac-c4fed98b0756.png)
 
-Delete inactive access keys of specific username.
+### Delete inactive access keys of specific username.
 ```
 ./cleanup-aws-access-keys delete --status inactive --username jeff.bezos
 ```
