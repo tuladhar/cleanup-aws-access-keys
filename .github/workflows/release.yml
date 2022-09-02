@@ -1,0 +1,46 @@
+name: Release binaries
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  amd64-releases-matrix:
+    name: Release Go Binary (amd64)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goos: [linux, windows, darwin]
+        goarch: [amd64]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: wangyoucao577/go-release-action@v1.16
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          goversion: "https://dl.google.com/go/go1.17.5.linux-amd64.tar.gz"
+          goos: ${{ matrix.goos }}
+          goarch: ${{ matrix.goarch }}
+          project_path: "."
+          binary_name: "cleanup-aws-access-keys"
+          ldflags: "-s -w"
+          extra_files: LICENSE README.md
+
+  arm64-releases-matrix:
+    name: Release Go Binary (arm64)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goos: [linux, darwin]
+        goarch: [arm64]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: wangyoucao577/go-release-action@v1.16
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          goversion: "https://dl.google.com/go/go1.17.5.linux-amd64.tar.gz"
+          goos: ${{ matrix.goos }}
+          goarch: ${{ matrix.goarch }}
+          project_path: "."
+          binary_name: "cleanup-aws-access-keys"
+          ldflags: "-s -w"
+          extra_files: LICENSE README.md
